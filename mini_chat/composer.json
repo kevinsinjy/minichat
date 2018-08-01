@@ -1,0 +1,13 @@
+{
+    "name": "sinjy/mini_chat",
+    "authors": [
+        {
+            "name": "Kevin Sinjy",
+            "email": "kevin.sinjy@outlook.fr"
+        }
+    ],
+    "require": {
+        "mistic100/randomcolor": "^1.0"
+    }
+}
+
