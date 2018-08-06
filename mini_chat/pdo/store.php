@@ -24,12 +24,12 @@
 
     // Insertion du message à l'aide d'une requête préparée
 
-    $req = $bdd->prepare('INSERT INTO tp_chat.mini_chat (pseudo, message, date,IP, user) VALUES(?, ?, NOW(), ?, ?)');
+    $req = $bdd->prepare('INSERT INTO mini_chat (pseudo, message, date,IP, user) VALUES(?, ?, NOW(), ?, ?)');
 
     $req->execute(array($_POST['nickname'], $_POST['message'], get_ip(), $_SERVER['HTTP_USER_AGENT']));
 
     //Pour trouver ou non le pseudo en BDD
-    $nickname_exists = $bdd->prepare('SELECT COUNT(*) FROM tp_chat.user WHERE pseudo = ?');
+    $nickname_exists = $bdd->prepare('SELECT COUNT(*) FROM user WHERE pseudo = ?');
     $nickname_exists->execute([$_POST["nickname"]]);
 
     //Variable pour nickname avec color déjà attribué
@@ -42,7 +42,7 @@
 
     //Si pas de couleur attribué au pseudo
     if( $nicknameColor==="0"){
-        $req1 = $bdd->prepare('INSERT INTO tp_chat.user (pseudo, color) VALUES (?,?)');
+        $req1 = $bdd->prepare('INSERT INTO user (pseudo, color) VALUES (?,?)');
         $req1->execute(array($_POST["nickname"], RandomColor::one() ));
     }
 

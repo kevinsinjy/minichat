@@ -2,7 +2,7 @@
 
     <?php
         // Connexion à la base de données
-        include 'connection.php';
+        include 'pdo/connection.php';
 
         $reponse = $bdd->query('SELECT m.pseudo, m.message,m.date, u.color FROM mini_chat m LEFT JOIN user u ON m.pseudo = u.pseudo ORDER BY ID DESC LIMIT 0, 10');
 
